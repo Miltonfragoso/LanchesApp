@@ -1,0 +1,17 @@
+﻿@* @model IEnumerable<LanchesApp.Models.Lanche> *@
+<!--ou-->
+
+@using LanchesApp.Models 
+@model IEnumerable<Lanche>
+
+
+<div><h2>Lista de Lanches </h2></div>
+
+@foreach (var lanche in Model)
+{
+    <div>
+        <h4>Lanche : @lanche.Nome</h4>
+        <p><img src="@lanche.ImagemUrl"/></p>
+        <p>Preço: @lanche.Preco.ToString("c")</p>
+    </div>
+}
