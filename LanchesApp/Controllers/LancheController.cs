@@ -14,6 +14,7 @@ namespace LanchesApp.Controllers
             _categoriaRepository = categoriaRepository;
         }
 
+        //Método para listar os lanches
         public ActionResult List()
         {
             var lanches = _lancheRepository.Lanches;
