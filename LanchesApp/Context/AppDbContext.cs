@@ -9,5 +9,6 @@ namespace LanchesApp.Context
 
         public DbSet<Lanche> Lanches { get; set; }
         public DbSet<Categoria> Categorias { get; set; }
+        public DbSet<CarrinhoCompraIntem> CarrinhoCompraIntems { get; set; }
     }
 }

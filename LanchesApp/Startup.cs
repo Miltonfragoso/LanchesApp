@@ -1,4 +1,5 @@
 ﻿using LanchesApp.Context;
+using LanchesApp.Models;
 using LanchesApp.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -38,7 +39,11 @@ namespace LanchesApp
             services.AddTransient<ILancheRepository, LancheRepository>();
 
             services.AddTransient<ICategoriaRepository, CategoriaRepository>();
-            
+
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
+            services.AddScoped(cp => CarrinhoCompra.GetCarrinho(cp));
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
         }
@@ -58,6 +63,9 @@ namespace LanchesApp
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+
+            //Habilita o uso de sessão
+            app.UseSession();
             app.UseCookiePolicy();
 
             app.UseMvc(routes =>

@@ -12,5 +12,6 @@
 @foreach (var lanche in Model.Lanches)
 {
     //renderizando a partial view html helper
-    @Html.Partial("_LanchesResumo", lanche)
+    @* @Html.Partial("_LanchesResumo", lanche) *@
+    <partial name="_LanchesResumo" for="@lanche" />
 }
