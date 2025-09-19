@@ -24,7 +24,7 @@ namespace LanchesApp.Repositories
         //Método para retornar um lanche pelo ID
         public Lanche GetLancheById(int lancheId)
         {
-            return _context.Lanches.FirstOrDefault(a => a.LancheId == lancheId);
+            return _context.Lanches.FirstOrDefault(l => l.LancheId == lancheId);
 
         }
     }

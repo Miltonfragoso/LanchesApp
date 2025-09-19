@@ -9,9 +9,18 @@
 
 @foreach (var lanche in Model)
 {
-    <div>
-        <h4>Lanche : @lanche.Nome</h4>
-        <p><img src="@lanche.ImagemUrl"/></p>
-        <p>Preço: @lanche.Preco.ToString("c")</p>
+    <div class="col-sm4 col-lg-4 col-md-4">
+
+       <div class="thumbnail">
+            <img src="@lanche.ImagemUrl" class="img-rounded" alt="" />
+       </div>
+
+       <div class="caption">
+            <h3 class="pull-right"> @lanche.Preco.ToString("c")</h3>
+            <h3>
+                @lanche.Nome
+            </h3>
+            <p>@lanche.DescricaoCurta</p>
+       </div>
     </div>
 }

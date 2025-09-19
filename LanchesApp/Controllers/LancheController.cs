@@ -17,6 +17,11 @@ namespace LanchesApp.Controllers
         //Método para listar os lanches
         public ActionResult List()
         {
+            //Formas de passar dados do controlador para a View
+            ViewBag.Lanche = "lanches";
+            ViewData["Categoria"] = "Categoria";
+
+
             var lanches = _lancheRepository.Lanches;
             return View(lanches);
         }
