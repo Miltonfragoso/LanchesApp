@@ -1,4 +1,5 @@
 ﻿using LanchesApp.Repositories;
+using LanchesApp.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LanchesApp.Controllers
@@ -22,8 +23,14 @@ namespace LanchesApp.Controllers
             ViewData["Categoria"] = "Categoria";
 
 
-            var lanches = _lancheRepository.Lanches;
-            return View(lanches);
+            //var lanches = _lancheRepository.Lanches;
+            //return View(lanches);
+
+            var lanchesListViewModel = new LanchesListViewModel();
+            lanchesListViewModel.Lanches = _lancheRepository.Lanches;
+            lanchesListViewModel.CategoriaAtual = "Categoria Atual";
+
+            return View(lanchesListViewModel);
         }
     }
 }

@@ -1,13 +1,15 @@
 ﻿@* @model IEnumerable<LanchesApp.Models.Lanche> *@
 <!--ou-->
 
-@using LanchesApp.Models 
-@model IEnumerable<Lanche>
+@* @using LanchesApp.Models 
+@model IEnumerable<Lanche> *@
+
+@model LanchesListViewModel
 
 
-<div><h2>Lista de Lanches </h2></div>
+<div><h2>@Model.CategoriaAtual</h2></div>
 
-@foreach (var lanche in Model)
+@foreach (var lanche in Model.Lanches)
 {
     <div class="col-sm4 col-lg-4 col-md-4">
 
