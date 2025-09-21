@@ -3,34 +3,28 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using LanchesApp.Repositories;
+using LanchesApp.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LanchesApp.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly ILancheRepository _lancheRepository;
+
+        public HomeController(ILancheRepository lancheRepository)
+        {
+            _lancheRepository = lancheRepository;
+        }
         public IActionResult Index()
         {
-            return View();
-        }
+            var homeViewModel = new HomeViewModel 
+            { 
+                LanchesPreferidos = _lancheRepository.LanchesPreferidos 
+            };
 
-        public IActionResult About()
-        {
-            ViewData["Message"] = "Your application description page.";
-
-            return View();
-        }
-
-        public IActionResult Contact()
-        {
-            ViewData["Message"] = "Your contact page.";
-
-            return View();
-        }
-
-        public IActionResult Privacy()
-        {
-            return View();
+            return View(homeViewModel);
         }
 
     }
